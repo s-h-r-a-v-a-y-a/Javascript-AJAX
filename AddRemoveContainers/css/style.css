@@ -1,0 +1,34 @@
+.container{
+    margin: 1rem auto;
+    width: 54%;
+    border: 1px grey solid;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #f7e6e6d1;
+}
+
+input{
+    padding: 1rem;
+    outline: none;
+    border-radius: 8px;
+    border: 1px grey solid;
+}
+
+button{
+    padding: 0.5rem 1.8rem;
+    border-radius: 8px;
+    border: 1px grey solid;
+}
+
+.main{
+    margin: auto;
+    width: 93%;
+    margin-bottom: 0.4rem;
+}
+.sub{
+    display: flex;
+    width: 93%;
+    justify-content: flex-end;
+    margin: auto;
+    gap: 15px;
+}

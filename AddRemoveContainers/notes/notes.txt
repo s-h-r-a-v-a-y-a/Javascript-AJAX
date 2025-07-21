@@ -1,0 +1,63 @@
+document.getElementById("")
+document.getElementByTag("")
+
+ele.setAttribute("attr","val")
+ele.getAttribute("attr")
+
+to add a new input field using js:
+
+ele = document.createElement("input")
+ele.type = text
+ele.placeholder =
+dynamic creation
+
+container.appendchild("ele") - then itll e visible in html
+
+instead of different selector methods for class id tag,
+let query = document.getSelector("#id, .class)
+
+if query is an array of selectors
+
+for(let q of query)
+{
+    q.style["background-color"]="red";
+}
+multiple changes at once 
+
+<form onsubmit="submi(e)">
+<button type="submit">
+</form>
+button type shoud mementioned as submit for onsubmit to work
+
+to prevent default action of a button/submit:
+e.preventDefault()
+
+document.querySelector("form").onsubmit = function(e){
+    e.preventDefault();
+}
+
+to append html: .innerhtml()
+
+css:
+ /*
+let st = document.getElementsByTagName("style")[0];
+
+
+let css = st.sheet;
+css.insertRule("button {border: 1px yellow solid;}",css.cssRules.length)
+css.insertRule("input {outline: none;}",css.cssRules.length)
+let rules = css.cssRules;
+
+console.log(rules);
+for(let i=0; i<rules.length;i++)
+{
+    console.log(rules[i].cssText)
+}
+
+rules[2].style.padding = "1rem"
+console.log(rules[2].cssText)
+console.log(rules);
+while (css.cssRules.length > 0) {
+    css.deleteRule(0);
+}
+*/

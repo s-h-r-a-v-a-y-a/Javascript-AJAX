@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    text-align: center;
+    margin: auto;
+    border-radius: 8px;
+    border: 1px solid #65668b;
+    width: 52%;
+    margin-top: 6%;
+    font-family: sans-serif;
+}
+.circle{
+    border-radius: 69%;
+    background-color: grey;
+    color: white;
+    padding: 1rem 1.3rem;
+}
+
+
+.line{
+    width: 5rem;
+    background-color: #a2a0b5d1;
+    position: relative;
+    height: 3px;
+    top: 23px;
+}
+.c-1, .l-1{
+    background-color: #585cc3f0; 
+}
+
+button{
+    padding: 3% 11%;
+    padding: 3% 11%;
+    background-color: #585cc3f0;
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+input{
+    padding: 3%;
+    width: 100%;
+    border-radius: 0px;
+    border: 1px solid #4b495647;
+    outline: none;
+}
+
+.num{
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+}
+
+p{
+    color: #1c1e52f0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0.2rem;
+    margin-bottom: 2rem;
+}
+
+
+.form {
+    width: 60%;
+    margin: auto;
+}
+
+.text{
+    color: #4b4956f0;
+    text-align: left;
+    padding: 1%;
+}
+
+
+.btn{
+    display: flex;
+    justify-content: flex-end;
+    gap: 40%;
+    padding: 2% 0 10% 0;
+}
+
+.prev, .prev1{
+    padding: 2% 8%;
+}
+
+.red{
+    color: red;
+    font-weight: 200;
+    margin: 0;
+    font-size: 1rem;
+    margin-top: 3%;
+    text-align: left;
+}
+
+.fpad{
+    margin-bottom: 8%;
+}
+
+.main-3, .main-4, .main-2{
+    display: none;
+}
+
+.lst {
+    text-align: left;
+    margin-bottom: 1.1rem;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+}
