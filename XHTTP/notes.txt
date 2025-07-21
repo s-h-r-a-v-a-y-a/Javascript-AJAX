@@ -1,0 +1,128 @@
+nodejs -> runtime env , not language
+it has v8 embedded inside
+single-thread - one core - infinite while loop (one single thread) -nodejs app - hence batch  processes not favourable, instead better for IO
+
+but for python/java which are synchronous lang: its just indentation/syntax check-> compile -> execute -> free the resource
+
+but nodejs doesnt free the resource
+
+event queue
+timer task has top priority
+next pending callback
+->but promise has most prioority over all
+process.nextTick is a spatial fn and has next priority
+1. promise, does not check the layers, executed first
+2. process.nextTick
+3.setTimeout()
+4. setImmediate()
+
+when each phase is completed or before started, process.nextTick is called
+
+these 7 phases triggerred when while loop sees an async task 
+
+ES6 - 2015
+variable fn: it wont go to the top of the compiler/hosting. usual fn does. it acts as a variable
+const tr = fucntion(){}
+
+arrow fn: syntactic sugar
+const tr = (para1, para2) => {}
+if one line in code, no need of writing return:
+const tr = (para1, para2) => para1+para2 (no need of return here)
+
+eg: array sorting
+let arr = [3,2,5,1,5,6,0]
+arr.sort((a,b)=>b-a) :desc order
+
+arrow fn dont have their own "this", it inherits the "this" of its parent
+parent "this" wont be overriden like in case of normal fn as they have their own this
+also, they are not hosted, so they must be defined before being called
+
+Object destructure : syn sug
+Array destructure : syntactic sugar
+
+Math.min
+
+spread operator : ... : to avoid reference issue and help in deepcopying
+can also deepclone an object using spread.
+
+promises: to make async into sync 
+
+... is also used for assigning indefinite variables,its called rest operator:
+function fn(...param){
+    let(para of param)
+    {
+        console.log(para)
+    }
+}
+
+AJAX:
+fetch based on this
+AJAX is core on which it is based 
+
+XMLHttpRequest() has 2 callbacks
+onload -> success response
+open -> (method, link/endpt, async true or false?)
+send ->
+
+xhttp.onload -> when everything is properly loaded -> gives final response
+xhttp.onreadystatechange -> when theres any change in started ->  automatically called when theres any change in state but both give same end result but this includes the changes too
+
+function customFetch(endpoint,method,body) {
+    return new Promise(function (resolve, reject) {
+       
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            const response = JSON.parse(this.responseText);
+ 
+            if (this.status === 201) {
+ 
+                resolve(response);
+ 
+ 
+            } else if (this.status === 400) {
+                  
+                reject(response)
+ 
+            } else {
+                console.log("500", response)
+                reject(response)
+            }
+        }
+       
+        xhttp.open(method, endpoint);
+        // this is used to send headers remember if we are sedning json we need to pass
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ 
+        // here we send body in GET it is empty body always string so always wrap your object with JSON.stringufy
+        xhttp.send(body);
+ 
+    })
+ 
+ 
+}
+ 
+ 
+async function runPromise(){
+ 
+    try{
+ 
+        let endpoint = 'https://api.escuelajs.co/api/v1/users/';
+        let method = "POST";
+        const body = JSON.stringify({
+            "name": "Nicolas",
+            "email": "nico@gmail.com",
+           "password":"This is new",
+           "avatar": "https://picsum.photos/800"
+        })
+        const result = await customFetch(endpoint,method,body);
+        console.log(result);
+ 
+    }catch(err){
+ 
+        console.log("Hereee")
+        console.log(err);
+    }
+}
+ 
+ 
+runPromise();

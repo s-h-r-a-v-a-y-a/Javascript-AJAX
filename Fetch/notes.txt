@@ -1,0 +1,186 @@
+cookie : data with a expiry data
+name, content, expire, path
+
+document.cookie.split(";).split("=")
+
+check w3schools for cookie helper fns
+
+AJAX - server data
+
+REST APIs : communication between multiple platforms
+-Representational state transfers
+-stateless, no interconnection between client and server
+eg data between ios-flask and backend-java
+four operations in REST:
+1. get : getting a value(doesnt change anything)
+call the url and get value
+can only handle 1024 bytes
+used for both fetching and creating
+if you want to pass any arg or data, pass by url, you can pass by: ?queryName = queryValue&_queryName = queryValue - queryParams
+2. post : creates a value, to handle large >1024 bytes -> cant see the data you send -> always  used for creating something
+3. put: replace  entire value with new
+4. delete: delete a value
+5.patch: replace only part of value
+status series:
+200-299: success
+300-399: redirect
+400-499 - error
+404- not found
+
+fetch API:
+
+
+JSON : Javascript Object - key, value - supports only string boolean number
+
+async-await: wrapper to let the compiler wait for some action
+else you get promise pending
+
+promises:
+js is async, to make this async to sync we use promises
+promise is a class with 2 callbacks(callbacl - function as an arg): resolve, reject
+100 promise methods : callback hell : to address this : async await
+
+
+
+ 
+function callApi() {
+ 
+    return new Promise(function (resolve, reject) {
+ 
+        fetch("https://fakerapi.it/api/v2/books").then(async function (response) {
+ 
+            let data = null;
+ 
+ 
+            if (response.status === 200) {
+ 
+                data =  await response.json();
+                console.log(data)
+                resolve(data.data)
+ 
+            }
+ 
+ 
+ 
+        }).catch(err => {
+            reject(err);
+        })
+ 
+    });
+ 
+ 
+}
+ 
+ 
+ 
+function timeOut() {
+ 
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+ 
+            resolve("This tis timeour");
+        }, 2000)
+    })
+}
+ 
+// we were calling 100 promise methiod
+ 
+// callApi().then(data=>{
+//     console.log(data)
+//     timeOut().then(time=>{
+//         console.log(time)
+//        setTimeout(()=>{
+//         console.log("Last")
+//        },1000)
+//     }).catch(err=>{
+ 
+//     })
+ 
+// }).catch(secondErr=>{
+//     console.log(secondErr);
+// })
+ 
+ 
+//async await
+ 
+ 
+function cardHtml(cardData){
+ 
+    let str = ` <div>
+ 
+        Title:<span>${cardData.title}</span>
+ 
+    </div>`
+ 
+    return str;
+ 
+}
+ 
+ 
+async function synCall() {
+ 
+    try {
+ 
+        const data = await callApi();
+ 
+        let finalStr = ''
+       
+        for(let card of data){
+            finalStr+= cardHtml(card);
+        }
+ 
+        console.log(finalStr);
+ 
+        let selector = document.getElementById("container");
+        selector.innerHTML = finalStr;
+ 
+        const time = await timeOut();
+        console.log(time);
+ 
+        console.log("Last")
+ 
+    } catch (err) {
+        console.log(err)
+ 
+ 
+    }
+ 
+ 
+}
+ 
+ 
+synCall();
+ 
+ 
+ 
+Visual Example of Callback Hell vs Promises vs Async/Await
+Callback Hell:
+
+fetchData(function(data) {
+    processData(data, function(result) {
+        saveData(result, function() {
+            console.log("Done!");
+        });
+    });
+});
+
+Promises:
+
+fetchData()
+    .then(processData)
+    .then(saveData)
+    .then(() => console.log("Done!"))
+    .catch(error => console.error(error));
+
+Async/Await:
+
+async function handleData() {
+    try {
+        const data = await fetchData();
+        const result = await processData(data);
+        await saveData(result);
+        console.log("Done!");
+    } catch (error) {
+        console.error(error);
+    }
+}

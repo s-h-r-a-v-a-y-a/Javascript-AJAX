@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="ban2">Please fill all the details correctly</div>
+    <div class="main"></div>
+    <div class="content">
+        <div class="btn">
+            <button class="add"> Add User </button>
+        </div>
+        <div class="user-list">
+            <table>
+                <tr>
+                    <th> Avatar </th>
+                    <th> User ID </th>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Password </th>
+                    <th> Role </th>
+                    <th> Created At </th>
+                    <th> Actions </th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="banner">
+       <div class="banner-cont"></div>
+        <button class="ban-btn"> Done </button>
+    </div>
+    <div class="loader"></div>
+    <form class="form" onsubmit="addUser(event)">
+        <div class="form-img">
+            <img src="./close.png" class="close">
+        </div>
+        <div class="form-flex">
+            <div class="field">
+                <label> Name </label>
+                <div>
+                    <input type="text" name="firstNm">
+                </div>
+                <p class="warn1 warn"> Please fill this field </p>
+            </div>
+            <div class="field">
+                <label> Email </label>
+                <div>
+                    <input type="email" name="mail">
+                </div>
+                <p class="warn2 warn"> Please fill this field </p>
+            </div>
+            <div class="field" style="display: none;">               
+                    <input type="hidden" name="ids">
+            </div>
+        </div>
+        <div class="field2">
+            <label> Password : </label>
+            <div>
+                <input type="password" name="pwd">
+            </div>
+            <p class="warn3 warn"> Please fill this field </p>
+        </div>
+        <button type="submit" class="sub"> Submit </button>
+        <button type="button" class="update"> Update </button>
+    </form>
+    <script src="./js/script.js"></script>
+</body>
+</html>

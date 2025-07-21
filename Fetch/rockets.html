@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .list{
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 12%;
+        }
+        .card{
+            width: 22%;
+            background-color: #f3f3f3;
+            border-radius: 16px;
+        }
+
+        .img-cont{
+            width: 220px;
+            height: auto;
+            margin: 0 auto;
+            padding-top: 9%;
+        }
+
+        .title{
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .info{
+            display: none;
+        }
+        .loader {
+            display: none;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 14px solid #3498db;
+            width: 75px;
+            height: 75px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+            margin-top: 19%;
+            }
+
+            /* Safari */
+            @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+
+            .frame1 {
+                background-color: #cbcbdd66;
+                width: 71%;
+                margin: auto;
+                border-radius: 32px;
+            }
+
+            .back-img {
+                width: 40px;
+                height: 40px;
+                padding-top: 3%;
+                padding-left: 3%;
+            }
+
+            .frame2 {
+                margin: 0 auto;
+            }
+
+            .rock-img {
+                width: 363px;
+                margin: 0 auto;
+                padding-bottom: 3%;
+            }
+
+            .frame3 {
+                text-align: left;
+                width: 73%;
+                margin: 0 auto;
+                padding-bottom: 4%;
+                color: #2c2d46;
+                word-spacing: 1px;
+            }
+    </style>
+</head>
+<body>
+    <div class="list">
+
+    </div>
+    <div class="loader"></div>
+    <div class="info">
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
